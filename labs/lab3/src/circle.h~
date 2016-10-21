@@ -1,0 +1,68 @@
+//Kevin Kan
+//ECE 2620-001
+//Lab3: Circles with templates
+
+#ifndef _CIRCLE_H_
+#define _CIRCLE_H_
+#include <cmath>
+#define PI (4*atan(1))
+
+template <typename genericType> 
+class circle{
+	public:
+		circle(genericType xcor1 = 7, genericType ycor1 = 10, genericType xcor2 = 4, genericType ycor2 = 7);
+		double radius();
+		double circumference();
+		double area();
+		void populate_classobj(genericType xcor1, genericType ycor1, genericType xcor2, genericType ycor2);
+
+	protected:
+		double distance ();
+
+	private:
+		genericType x1;
+		genericType x2;
+		genericType y1;
+		genericType y2;
+};
+
+template <typename genericType>
+circle<genericType>::circle(genericType xcor1, genericType ycor1, genericType xcor2, genericType ycor2){
+	populate_classobj(xcor1, ycor1, xcor2, ycor2);
+}
+template <typename genericType>
+void circle<genericType>::populate_classobj(genericType xcor1, genericType ycor1, genericType xcor2, genericType ycor2){
+	x1 = xcor1;
+	y1 = ycor1;
+	x2 = xcor2;
+	y2 = ycor2;
+}
+
+template <typename genericType>
+double circle<genericType>::distance(){
+	//Will calculate distance between (x1, y1) and (x2, y2)
+	return sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+}
+
+template <typename genericType>
+double circle<genericType>::radius(){
+	//Will calculate distance between (x1, y1) and (x2, y2)
+	//Runs distance method as radius
+	return distance();
+}
+
+template <typename genericType>
+double circle<genericType>::circumference(){
+	//Will calculate circumference with given radius
+	return 2*PI*radius();	
+}
+
+template <typename genericType>
+double circle<genericType>::area(){
+	// Will calculate circumference with given radius
+	return PI*radius()*radius();
+}
+	
+
+#endif // _CIRCLE_H_
+

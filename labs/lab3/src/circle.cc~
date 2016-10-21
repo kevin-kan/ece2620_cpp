@@ -1,0 +1,52 @@
+//Kevin Kan
+//ECE 2620-001
+//Lab3: Circles with templates
+
+#include "circle.h"
+#include <cmath>
+#define PI (4*atan(1))
+
+template <typename genericType>
+circle::circle(){
+	populate_classobj(0, 0, 1, 1);
+}
+template <typename genericType>
+circle::circle(genericType xcor1, genericType ycor1, genericType xcor2, genericType ycor2){
+	populate_classobj(xcor1, ycor1, xcor2, ycor2);
+}
+template <typename genericType>
+void circle::populate_classobj(genericType xcor1, genericType ycor1, genericType xcor2, genericType ycor2){
+	x1 = xcor1;
+	y1 = ycor1;
+	x2 = xcor2;
+	y2 = ycor2;
+}
+
+template <typename genericType>
+genericType circle::distance(){
+	//Will calculate distance between (x1, y1) and (x2, y2)
+	return sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+}
+
+template <typename genericType>
+genericType circle::radius(){
+	//Will calculate distance between (x1, y1) and (x2, y2)
+	//Runs distance method as radius
+	return distance();
+}
+
+template <typename genericType>
+genericType circle::circumference(){
+	//Will calculate circumference with given radius
+	return 2*PI*radius();	
+}
+
+template <typename genericType>
+genericType circle::area(){
+	// Will calculate circumference with given radius
+	return PI*radius()*radius();
+}
+	                         
+
+
+
