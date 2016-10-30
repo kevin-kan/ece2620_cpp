@@ -14,7 +14,9 @@ AM_CFLAGS =\
 bin_PROGRAMS = lab4
 
 lab4_SOURCES = \
-	main.cc
+	main.cc \
+	GenArray.cc \
+	GenArray.h
 
 lab4_LDFLAGS = 
 

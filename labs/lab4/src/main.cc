@@ -1,14 +1,23 @@
 // Kevin Kan
 // ECE 2620:001
 // Lab4: Accessing Dynamic Arrays Through Pointers
-
+/* Currently able to determine number of lines in the file,
+ *  read the numbers from the file,
+ *	and write the max numbers to a new file.
+ * Currently UNABLE to work with templates and other data types
+ * [x] Base Assignment
+ * [x] Extra Credit 1
+ * [ ] Extra Credit 2
+ */
 #include <iostream>
 #include <fstream>
+// #include "GenArray.h"
 
 using namespace std;
 
-int findmax(int a, int b, int c, int d, int e){
-	int max = a;
+template <typename gen>
+gen findmax(gen a, gen b, gen c, gen d, gen e){
+	gen max = a;
 	if (b > max) max = b;
 	if (c > max) max = c;
 	if (d > max) max = d;
@@ -16,13 +25,22 @@ int findmax(int a, int b, int c, int d, int e){
 	return max;
 }
 
+//template <typename gen>
+//void createArrays(int size){
+//	gen* arrP;
+//	arrP = new gen[size];
+//}
+
 int main(){
 	int numLines = 0;				// Number of Lines in file
-	int i1, i2, i3, i4, i5;		// To store numbers in line
+	int i1, i2, i3, i4, i5;		// To store numbers in line (int)
+	double d1, d2, d3, d4, d5;  // To store numbers in line (double)
+	ifstream infile;
+	ofstream outfile;
 
 	/* DETERMINE NUMBER OF LINES IN FILE */
 	string line;
-	ifstream infile("lab4_input.txt");
+	infile.open("lab4_input.txt");
 	if (infile.is_open()){		// Checks if file is really open
 		while (getline(infile, line)){
 			numLines++;
@@ -45,10 +63,10 @@ int main(){
 	/* DYNAMICALLY CREATE ARRAY */
 	int* arrP;
 	arrP = new int[numLines];
+//	createArrays(numLines);
 
 	/* READING FROM FILE */
 	// ifstream infile("lab4_input.txt");
-	// ifstream infile;
 	infile.open("lab4_input.txt");
 	if (infile.is_open()){		// Checks if file is really open
 		for (int i = 0; i < numLines; i++){		// Fills array with max #s
@@ -65,7 +83,6 @@ int main(){
 	}
 	
 	/* WRITING TO FILE */
-	ofstream outfile;
 	outfile.open("lab4_output.txt");
 	if (outfile.is_open()){
 		for (int i = 0; i < numLines; i++){
