@@ -17,20 +17,38 @@ int findmax(int a, int b, int c, int d, int e){
 }
 
 int main(){
-	int numLines, i1, i2, i3, i4, i5;
+	int numLines = 0;				// Number of Lines in file
+	int i1, i2, i3, i4, i5;		// To store numbers in line
 
-	/* ASK USER FOR NUMBER OF LINES */
-	int* arrP;
-	cout << "How many lines are in the input file?";
-	cin >>  numLines;
-	//cout << "Number of lines:" << numLines << endl;
+	/* DETERMINE NUMBER OF LINES IN FILE */
+	string line;
+	ifstream infile("lab4_input.txt");
+	if (infile.is_open()){		// Checks if file is really open
+		while (getline(infile, line)){
+			numLines++;
+		}
+		cout << "Number of lines:" << numLines << endl;
+		infile.close();
+	}
+	else{
+		cout << "Failed to read from file." << endl;
+		infile.close();
+		return 0;
+	}
 
+//		/* ASK USER FOR NUMBER OF LINES */
+//		cout << "How many lines are in the input file?";
+//		cin >>  numLines;
+//		//cout << "Number of lines:" << numLines << endl;
+
+	 
 	/* DYNAMICALLY CREATE ARRAY */
+	int* arrP;
 	arrP = new int[numLines];
 
 	/* READING FROM FILE */
 	// ifstream infile("lab4_input.txt");
-	ifstream infile;
+	// ifstream infile;
 	infile.open("lab4_input.txt");
 	if (infile.is_open()){		// Checks if file is really open
 		for (int i = 0; i < numLines; i++){		// Fills array with max #s
