@@ -1,21 +1,22 @@
 [Anjuta]
 Maximized=1
-Geometry=1855x1056+65+24
+Geometry=1855x1056+1985+24
 
 [File Loader]
-Files=../../src/main.cc#16%%%../../src/GenArray.h#3%%%../../src/GenArray.cc#7
+Files=../../src/main.cc#45%%%../../src/candidate.h#10
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
 
 [Execution]
-Program uri=../../Debug/src/lab4
+Program arguments=
+Program uri=../../Debug/src/homeworkb2
 Run in terminal=2
 Working directories=../../.
 
 [Project Manager]
-Shortcut=lab4//src//lab4
-Expand=lab4%%%lab4//src%%%lab4//src//lab4%%%lab4//dist_doc
+Shortcut=homeworkB2//src//homeworkb2
+Expand=homeworkB2%%%homeworkB2//src%%%homeworkB2//src//homeworkb2
 
 [Debugger]
 Stop at beginning=2
