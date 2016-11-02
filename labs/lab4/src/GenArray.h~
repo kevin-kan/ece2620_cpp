@@ -1,0 +1,16 @@
+//Kevin Kan
+//ECE 2620-001
+//Lab3: Circles with templates
+
+// ** ABANDONED **
+
+#ifndef _GENARRAY_H_
+#define _GENARRAY_H_
+
+template <typename gen> 
+class GenArray{
+	public:
+		
+};
+
+#endif // _GENARRAY_H_

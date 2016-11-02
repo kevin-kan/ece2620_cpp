@@ -1,0 +1,6 @@
+GenArray.o: /home/ubuntu/ece2620/labs/lab4/src/GenArray.cc \
+ /usr/include/stdc-predef.h /home/ubuntu/ece2620/labs/lab4/src/GenArray.h
+
+/usr/include/stdc-predef.h:
+
+/home/ubuntu/ece2620/labs/lab4/src/GenArray.h:
