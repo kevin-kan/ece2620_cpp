@@ -6,5 +6,5 @@
 
 struct candidate{
 	char lastname[50];
-	int	numVotes;
+	int	numVotes = 0;
 };

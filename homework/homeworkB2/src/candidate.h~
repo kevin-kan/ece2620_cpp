@@ -4,7 +4,7 @@
  * Structure for Candidate
  */
 
-struct Candidates{
+struct candidate{
 	char lastname[50];
 	int	numVotes;
-}candidate;
+};

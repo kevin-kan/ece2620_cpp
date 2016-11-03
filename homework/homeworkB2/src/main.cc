@@ -29,8 +29,8 @@ double percentage(int a, int b){
 }
 
 int main(){
-	int total = 0;
-	
+	int total = 0;		//Holds total number of votes
+	candidate* winner;	//Holds winner of the election
 	// PROMPT USER FOR NUMBER OF CANDIDATES
 	int n; //Number of candidates in local election
 	cout << "Please input number of candidates:";
@@ -48,10 +48,14 @@ int main(){
 	}
 
 	// PROMPT USER TO INPUT NUMBER OF VOTES
+	winner = candidateP;
 	for (int i = 0; i < n; i++){
 		cout << "How many votes did " << (candidateP + i) -> lastname << " get?";
 		cin >> (candidateP + i) -> numVotes;
-		total = total + (candidateP + i) -> numVotes;
+		total = total + (candidateP + i) -> numVotes; //adds up votes
+		if (((candidateP + i) -> numVotes) > (winner -> numVotes)){
+			*winner = *(candidateP + i); //sets winner to candidate with highest number of votes
+		}
 	}
 
 	// PRINT TABLE OF VOTING DATA
@@ -60,6 +64,11 @@ int main(){
 		cout << (candidateP + i) -> lastname << "\t\t" << (candidateP + i) -> numVotes << "\t\t" << percentage((candidateP + i) -> numVotes, total) << endl;
 	}
 	cout << "Total \t\t" << total << "\t\t100" << endl;
+
+	// PRINT WINNER
+	cout << "The Winner of the Election is **" << winner -> lastname << "**." << endl;
+	cout << "Three cheers for **" << winner -> lastname << "**." << endl;
+		
 	return 0;
 }
 
