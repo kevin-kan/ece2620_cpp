@@ -2,23 +2,21 @@
 Maximized=1
 Geometry=1855x1056+65+24
 
-[Execution]
-Program uri=../../Debug/src/homeworkb2
-Run in terminal=2
-Working directories=../../.
-
 [File Loader]
-Files=../../src/main.cc#57%%%../../src/candidate.h#9
+Files=../../src/main.cc#29%%%../../src/lab5_input.txt#1
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
 
-[Project Manager]
-Shortcut=homeworkB2//src//homeworkb2
-Expand=homeworkB2%%%homeworkB2//src%%%homeworkB2//src//homeworkb2
+[Execution]
+Program arguments=
+Program uri=../../Debug/src/lab5
+Run in terminal=2
+Working directories=../../.
 
-[Debugger]
-Stop at beginning=2
+[Project Manager]
+Shortcut=lab5//src//lab5
+Expand=lab5%%%lab5//src%%%lab5//src//lab5
 
 [Build]
 Configuration list=1:Default:%%%1:Debug:Debug%%%1:Profiling:Profiling%%%1:Optimized:Optimized%%%1:MinGW32:MinGW32
@@ -27,3 +25,6 @@ BuildArgs/Default=--enable-maintainer-mode
 BuildArgs/Debug=--enable-maintainer-mode 'CFLAGS=-g -O0' 'CXXFLAGS=-g -O0' 'JFLAGS=-g -O0' 'FFLAGS=-g -O0'
 BuildArgs/Profiling=--enable-maintainer-mode 'CFLAGS=-g -pg' 'CXXFLAGS=-g -pg' 'JFLAGS=-g -pg' 'FFLAGS=-g -pg'
 BuildArgs/Optimized=--enable-maintainer-mode 'CFLAGS=-O2' 'CXXFLAGS=-O2' 'JFLAGS=-O2' 'FFLAGS=-O2'
+
+[Debugger]
+Stop at beginning=2
