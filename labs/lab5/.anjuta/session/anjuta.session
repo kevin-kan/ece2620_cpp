@@ -1,15 +1,14 @@
 [Anjuta]
 Maximized=1
-Geometry=1855x1056+65+24
+Geometry=1855x1056+1985+24
 
 [File Loader]
-Files=../../src/main.cc#29%%%../../src/lab5_input.txt#1
+Files=../../src/main.cc#114%%%../../src/sorts.h#53
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
 
 [Execution]
-Program arguments=
 Program uri=../../Debug/src/lab5
 Run in terminal=2
 Working directories=../../.
