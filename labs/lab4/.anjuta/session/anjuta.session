@@ -2,16 +2,16 @@
 Maximized=1
 Geometry=1855x1056+65+24
 
+[File Loader]
+Files=../../src/main.cc#42%%%../../src/GenArray.h#1%%%../../src/GenArray.cc#8
+
+[Document Manager]
+bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
+
 [Execution]
 Program uri=../../Debug/src/lab4
 Run in terminal=2
 Working directories=../../.
-
-[File Loader]
-Files=../../src/main.cc#42%%%../../src/GenArray.h#1%%%../../src/GenArray.cc#7
-
-[Document Manager]
-bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
 
 [Project Manager]
 Shortcut=lab4//src//lab4

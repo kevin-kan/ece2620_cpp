@@ -15,7 +15,7 @@ void printArr(T arr[], int size){
 }
 
 template <typename T>
-void bubblesort(T arr[], int size){
+void bubblesort(T arr[], long int size){
 	T temp;
 	for (int i = 0; i < size - 1; i++){
 		for (int j = size-1; j > 0; j--){
@@ -30,47 +30,47 @@ void bubblesort(T arr[], int size){
 }
 
 template <typename T>
-void mergesort(T arr[], int size){
-	int sizeL, sizeR = size/2;
-	if (size >= 2){
-		if (size % 2 == 1) sizeL = size/2 + 1;
-		else sizeL = size/2;
+void merge(T arr[], long int first, long int last){
+	long int mid = (first + last) /2;
+	long int i = 0, l = first, r = mid + 1;
+	T temp[last - first + 1];
+	while (l <= mid && r <= last){
+		if (arr[l] < arr[r]){
+			temp[i] = arr[l];
+			l++;
+		}
+		else{
+			temp[i] = arr[r];
+			r++;
+		}
+		i++;
 	}
-	if (size >= 2){
-		T arrL[sizeL];						// Left Array
-		T arrR[sizeR];						// Right Array
-		int i;
-
-		for (i = 0; i < sizeL; ++i){		// Fill in left array
-			arrL[i] = arr[i];
-		}
-		for (int j = 0; i < size; ++j){		// Fill in right array
-			arrR[j] = arr[i];
-			i++;
-		}
-//		printArr (arrL, sizeL);				// For some reason, this only works with
-//		printArr (arrR, sizeR);				//	  a print statement...
-		cout << " ";
-		mergesort(arrL, sizeL);				// Sort the left array with mergeSort
-		mergesort(arrR, sizeR);				// Sort the right array with mergeSort
-
-		int l = 0, r = 0;
-		i = 0;
-		while (i < size){
-			if (arrL[l] <= arrR[r]){
-				arr[i] = arrL[l];
-				l++;
-			}
-			else{
-				arr[i] = arrR[r];
-				r++;
-			}
-			i++;
-		}
-
+	while (l <= mid){
+		temp[i] = arr[l];
+		++i; ++l;
 	}
-
+	while (r <= last){
+		temp[i] = arr[r];
+		++i; ++r;
+	}
+	int b = first;
+	for (int a = 0; a <= last-first+1; a++){
+		arr[b] = temp[a];
+		b++;
+	}
 }
 
+template <typename T>
+void mergesortHelper(T arr[], long int begin, long int end){
+	if (end - begin + 1 >= 2){
+		long int mid = (begin + end) /2;
+		mergesortHelper(arr, begin, mid);
+		mergesortHelper(arr, mid + 1, end);
+		merge(arr, begin, end);
+	}
+}
 
-
+template <typename T>
+void mergesort(T arr[], long int size){
+	mergesortHelper(arr, 0, size - 1);
+}
