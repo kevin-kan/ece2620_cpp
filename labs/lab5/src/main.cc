@@ -1,6 +1,12 @@
 // Kevin Kan
 // ECE 2620-001
 // Lab 5: Bubble Sort & Merge Sort
+
+/* ********************************************* */
+// Bubble/Merge sort report found in README file 
+//  ../lab5/README
+/* ********************************************* */
+
 #include "sorts.h"
 
 int main(){
@@ -9,7 +15,7 @@ int main(){
 	long signed int arrB[MAXSIZE];
 	long signed int arrM[MAXSIZE];
 	double startT, endT, diffT;
-	long int numLines;
+	long int numLines, i;
 	string line;
 	bool doneReading = false;
 	
@@ -29,7 +35,7 @@ int main(){
 				/* READING FROM FILE */
 				infile.open("lab5_input.txt");
 				if (infile.is_open()){								// Checks if file is really open
-					long int i = 0;
+					i = 0;
 					while(!infile.eof() && i < MAXSIZE){			// stops at end of file or if MAXSIZE reached
 						infile >> arrB[i];
 						arrM[i] = arrB[i];
@@ -56,7 +62,7 @@ int main(){
 					diffT = (endT - startT)/CLOCKS_PER_SEC;
 					bubbleOut.open("lab5_bubbleout.txt");
 					if (bubbleOut.is_open()){
-						for (int i = 0; i < numLines; i++){
+						for (i = 0; i < numLines; i++){
 							bubbleOut << arrB[i] << endl;
 						}
 						cout << "Bubble Sort: File Write Complete." << endl;
@@ -82,9 +88,9 @@ int main(){
 					endT = clock();
 					diffT = (endT - startT)/CLOCKS_PER_SEC;
 					mergeOut.open("lab5_mergeout.txt");
-//					cout << "merge outfile open" << endl;
+					//cout << "merge outfile open" << endl;	 //for debug purposes
 					if (mergeOut.is_open()){
-						for (int i = 0; i < numLines; i++){
+						for (i = 0; i < numLines; i++){
 							mergeOut << arrM[i] << endl;
 						}
 						cout << "Merge Sort: File Write Complete." << endl;

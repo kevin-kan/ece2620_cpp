@@ -3,13 +3,13 @@ Maximized=1
 Geometry=1855x1056+1985+24
 
 [File Loader]
-Files=../../src/main.cc#114%%%../../src/sorts.h#53
+Files=../../src/main.cc#8%%%../../src/sorts.h#22
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
 
 [Execution]
-Program uri=../../Debug/src/lab5
+Program uri=../../src/lab5
 Run in terminal=2
 Working directories=../../.
 
@@ -17,13 +17,13 @@ Working directories=../../.
 Shortcut=lab5//src//lab5
 Expand=lab5%%%lab5//src%%%lab5//src//lab5
 
+[Debugger]
+Stop at beginning=2
+
 [Build]
 Configuration list=1:Default:%%%1:Debug:Debug%%%1:Profiling:Profiling%%%1:Optimized:Optimized%%%1:MinGW32:MinGW32
-Selected Configuration=Debug
+Selected Configuration=Default
 BuildArgs/Default=--enable-maintainer-mode
 BuildArgs/Debug=--enable-maintainer-mode 'CFLAGS=-g -O0' 'CXXFLAGS=-g -O0' 'JFLAGS=-g -O0' 'FFLAGS=-g -O0'
 BuildArgs/Profiling=--enable-maintainer-mode 'CFLAGS=-g -pg' 'CXXFLAGS=-g -pg' 'JFLAGS=-g -pg' 'FFLAGS=-g -pg'
 BuildArgs/Optimized=--enable-maintainer-mode 'CFLAGS=-O2' 'CXXFLAGS=-O2' 'JFLAGS=-O2' 'FFLAGS=-O2'
-
-[Debugger]
-Stop at beginning=2

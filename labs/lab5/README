@@ -1,0 +1,26 @@
+Lab 5: Bubble Sort & Merge Sort Report
+======================================
+Kevin Kan
+
+Merge Sort is a recursive algorithm that works well with large data sets. It sorts numbers by performing the same sort on one half of the array, then performing the sort on the other half. 
+After this, the two are put together and the array is sorted. 
+Bubble Sort is a bit simpler to understand and was used for a very long time before the discovery of other sort algorithms. It pulls the smallest numbers to the top of the array.
+Bubble Sort works well for smaller data sets. 
+
+After writing and conducting this lab, I have observed that the Bubble Sort algorithm is significantly slower than the Merge Sort algorithm.
+When sorting the large file, the Bubble Sort algorithm sorted the numbers in 8201.56 seconds on my computer, which is 2 hours, 16 minutes, and 41.56 seconds.
+This is significantly slower than the 0.297005 seconds it took for Merge Sort to sort the set of numbers. 
+
+The results I got from my lab are consistent with analytical running times of these algorithms. 
+In terms of Big-O Notation, Bubble Sort is pretty bad, with a time complexity of O(n^2). Merge Sort, on the other hand is better, with a time complexity of O(n log(n)). 
+
+With 2,000,000 numbers to sort through, bubble sort at a worst case shouldve taken n/(log(n)) times longer than merge sort. (~317408x faster)	
+However, this is not the case because although Bubble Sort runs with O(n^2) complexity at worst, it can be as fast as O(n) at a best case scenario. 
+This is when the list already sorted or nearly sorted to begin with. Merge Sort on the other hand will always take the full O(n log(n)). 
+In terms of other anomalies, sort times can always depends on the speed of the computer and what else the CPU is working on at the time. 
+In addition to this, Bubble sort can save a user some space, as a Merge Sort still requires a temporary array to be created, while Bubble Sort only needs another variable number.
+Therefore, there may be times where Bubble Sort could serve more useful than a Merge Sort algorithm. 
+
+Overall, writing the two algorithms allowed for a much bettter understanding of these sorting algorithms, and prompted me to look into understanding other Sort algorithms.
+I found that a good website to visualize the sort algorithms is: https://www.toptal.com/developers/sorting-algorithms
+A good website to compare the sorts in terms of Big O, theta, and omega is: http://bigocheatsheet.com/

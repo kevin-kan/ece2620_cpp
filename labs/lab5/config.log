@@ -605,6 +605,7 @@ config.status:1226: creating Makefile
 config.status:1226: creating src/Makefile
 config.status:1226: creating po/Makefile.in
 config.status:1226: creating config.h
+config.status:1407: config.h is unchanged
 config.status:1455: executing depfiles commands
 config.status:1455: executing default-1 commands
 config.status:1455: executing libtool commands
