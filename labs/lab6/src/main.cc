@@ -1,0 +1,202 @@
+//Kevin Kan
+//ECE 2620-001
+//Lab 6: DLL, Queues, and Stacks
+//main.cc meant for user interface only. (with the exception of try/catch)
+
+#include "Lab6.h" // Holds classes & libraries for DLLNode and DLList
+
+using namespace std;
+
+int main(){
+	bool exit = false;
+	int option0, option1, option2, option3, option4;
+	int insertion, searchDestroy;
+	IntDLList list1 = IntDLList();
+	
+	while (!exit){
+		cout << "Hello, what would you like to do?" << endl;
+		cout << "\t (1) Create Simple (Unsorted) List" << endl;
+		cout << "\t (2) Create Sorted List" << endl;
+		cout << "\t (3) Create Queue (FIFO)" << endl;
+		cout << "\t (4) Create Stack (LIFO)" << endl;
+		cout << "\t (5) Exit Program" << endl;
+		cin >> option0;
+		switch(option0){
+			case 1:	
+				while (!exit){
+					cout << "Please Create a Simple (Unsorted) List:" << endl;
+					cout << "\t (1) Enter integer for insertion at head of list" << endl;
+					cout << "\t (2) Enter integer for insertion at tail of list" << endl;
+					cout << "\t (3) Display and delete integer from head of list" << endl;
+					cout << "\t (4) Display and delete integer from tail of list" << endl;
+					cout << "\t (5) Search for integer in list, and delete that node" << endl;
+					cout << "\t (6) Display contents of list from head to tail, in order" << endl;
+					cout << "\t (7) Exit Program" << endl;
+					cin >> option1;
+					switch(option1){
+						case 1:
+							cout << "Enter the integer to insert at head of list" << endl;				
+							cin >> insertion;
+							cout << "Inserting " << insertion << " at the head of the list..." << endl;
+							list1.addToHead(insertion);
+							break;
+						case 2:
+							cout << "Enter the integer to insert at tail of list" << endl;				
+							cin >> insertion;
+							cout << "Inserting " << insertion << " at the tail of the list..." << endl;
+							list1.addToTail(insertion);
+							break;
+						case 3:
+							cout << "Removing from head..." << endl;
+							try{
+								cout << list1.deleteFromHead() << " was removed from the head of the list." << endl;
+							}
+							catch (runtime_error& excpt){
+								cout << excpt.what() << endl;
+							}
+							break;
+						case 4:
+							cout << "Removing from tail..." << endl;
+							try{
+								cout << list1.deleteFromTail() << " was removed from the tail of the list." << endl;
+							}
+							catch (runtime_error& excpt){
+								cout << excpt.what() << endl;
+							}
+							break;
+						case 5:
+							cout << "Enter the integer to search for and delete." << endl;
+							cin >> searchDestroy;
+							list1.remove(searchDestroy);
+							break;
+						case 6:
+							cout << "Displaying contents of the list..." << endl;
+							list1.printList();
+							break;
+						case 7:
+							cout << "Goodbye!" << endl;
+							exit = true;
+							break;
+						default:
+							cout << "Not a valid option.\n Please choose an option from the menu." << endl;
+					}
+				}
+				break;
+			case 2:		
+				while (!exit){
+					cout << "Please Create a Sorted List:" << endl;
+					cout << "\t (1) Enter integer for sorted insertion (increasing order) into list" << endl;
+					cout << "\t (2) Search and delete integer, if present in list" << endl;
+					cout << "\t (3) Display contents of sorted list of integers, in increasing order" << endl;
+					cout << "\t (4) Exit Program" << endl;
+					cin >> option2;
+					switch(option2){
+						case 1:
+							cout << "Enter the integer for sorted insertion" << endl;
+							cin >> insertion;
+							cout << "Inserting " << insertion << " into the list..." << endl;
+							list1.addSorted(insertion);
+							break;
+						case 2:
+							cout << "Enter the integer to search for and delete." << endl;
+							cin >> searchDestroy;
+							list1.remove(searchDestroy);
+							break;
+						case 3:				
+							cout << "Displaying contents of the list..." << endl;
+							list1.printList();
+							break;
+						case 4:
+							cout << "Goodbye!" << endl;
+							exit = true;
+							break;
+						default:
+							cout << "Not a valid option.\n Please choose an option from the menu." << endl;
+					}
+				}
+				break;
+			case 3:
+				while (!exit){
+					cout << "Please Create a Queue:" << endl;
+					cout << "\t (1) Enter integer for insertion into Queue (ENQUEUE)" << endl;
+					cout << "\t (2) Display and delete integer from Queue (DEQUEUE)" << endl;
+					cout << "\t (3) Display Queue contents (PRINT QUEUE)" << endl;
+					cout << "\t (4) Exit Program" << endl;
+					cin >> option3;
+					switch(option3){
+						case 1:
+							cout << "Enter the integer for insertion" << endl;
+							cin >> insertion;
+							cout << "Inserting " << insertion << " into Queue..." << endl;
+							list1.addToTail(insertion);
+							break;
+						case 2:
+							cout << "Removing from Queue" << endl;
+							try{
+								cout << list1.deleteFromHead() << " was removed from the Queue." << endl;
+							}
+							catch (runtime_error& excpt){
+								cout << excpt.what() << endl;
+							}
+							break;
+						case 3:	
+							cout << "Displaying contents of the queue..." << endl;
+							list1.printList();
+							break;
+						case 4:
+							cout << "Goodbye!" << endl;
+							exit = true;
+							break;
+						default:
+							cout << "Not a valid option.\n Please choose an option from the menu." << endl;
+					}
+				}
+				break;
+			case 4:
+				while (!exit){
+					cout << "Please Create a Stack:" << endl;
+					cout << "\t (1) Enter integer for insertion into Stack (PUSH)" << endl;
+					cout << "\t (2) Display and delete integer from Stack (POP)" << endl;
+					cout << "\t (3) Display Stack contents (PRINT STACK)" << endl;
+					cout << "\t (4) Exit Program" << endl;
+					cin >> option4;
+					switch(option4){
+						case 1:
+							cout << "Enter the integer for insertion" << endl;
+							cin >> insertion;
+							cout << "Inserting " << insertion << " into Stack..." << endl;
+							list1.addToHead(insertion);
+							break;
+						case 2:
+							cout << "Removing from Stack" << endl;
+							try{
+								cout << list1.deleteFromHead() << " was removed from the Stack." << endl;
+							}
+							catch (runtime_error& excpt){
+								cout << excpt.what() << endl;
+							}
+							break;
+						case 3:	
+							cout << "Displaying contents of the Stack..." << endl;
+							list1.printList();
+							break;
+						case 4:
+							cout << "Goodbye!" << endl;
+							exit = true;
+							break;
+						default:
+							cout << "Not a valid option.\n Please choose an option from the menu." << endl;
+					}
+				}
+				break;				
+			case 5:
+				cout << "Goodbye!" << endl;
+				exit = true;
+				break;
+			default:
+				cout << "Not a valid option.\n Please choose an option from the menu." << endl;
+		}
+	}
+	return 0;
+}
+

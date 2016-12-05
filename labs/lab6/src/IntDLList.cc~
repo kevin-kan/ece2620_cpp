@@ -1,0 +1,152 @@
+//Kevin Kan
+//ECE 2620-001
+//Lab 6: Doubly Linked List methods
+
+#include "Lab6.h"
+#include <stdexcept>
+
+using namespace std;
+
+bool IntDLList::isEmpty(){					//Checks if list is empty 
+	return (head == NULL && tail == NULL);
+}
+
+void IntDLList::addToHead(int &el){			//Adds the element to the Head of list
+	if (isEmpty()){	//If empty list
+		head = tail = new IntDLLNode(el);
+	}
+	else{			//If non-empty list 
+		IntDLLNode *temp = new IntDLLNode(el, head, NULL); 
+		head->prev = temp;
+		head = temp;
+	}
+}
+
+void IntDLList::addToTail(int &el){			//Adds the element to the Tail of list
+	if (isEmpty()){ //If empty list
+		head = tail = new IntDLLNode(el);
+	}
+	else{			//If non-empty list
+		IntDLLNode *temp = new IntDLLNode(el, NULL, tail);
+		tail->next = temp;
+		tail = temp;
+	}
+}
+
+int IntDLList::deleteFromHead(){			//Removes from Head of list
+	if (isEmpty()){ //If empty list
+		throw runtime_error("Cannot remove from an empty list.");
+	}
+	else{			//If non-empty list
+		int el = head -> info;
+		if (head == tail){		// If 1 node only
+			delete head;
+			head = NULL;
+			tail = NULL;
+		}
+		else{					// If >1 node
+			head = head->next;
+			delete head->prev;
+			head-> prev = NULL;
+		}
+		return el;
+	}
+}
+
+int IntDLList::deleteFromTail(){			//Removes from Tail of list
+	if (isEmpty()){ //If empty list
+		throw runtime_error("Cannot remove from an empty list.");
+	}
+	else{			//If non-empty list
+		int el = tail->info;
+		if (head == tail){		// If 1 node only
+			delete tail;
+			head = NULL;
+			tail = NULL;
+		}
+		else{					// If >1 node
+			tail = tail->prev;
+			delete tail->next;
+			tail-> next = NULL;
+		}
+		return el;
+	}
+}
+
+void IntDLList::remove(int el){				//Searches for, then removes the element if found
+	IntDLLNode *curr = head;
+	if (isEmpty()){	// If empty list
+		cout << "The list is empty. Your integer is not here." << endl;
+	}
+	else{			// If non-empty list
+		while (curr != NULL){   // Search until the end of the list
+			if (curr->info == el){		// If found...
+				if (curr == head){			// and the element is the head...
+					deleteFromHead();
+				}
+				else if (curr == tail){		// and the element is the tail...
+					deleteFromTail();
+				}
+				else{						// and the element is neither head nor tail...
+					curr->prev->next = curr->next;
+					curr->next->prev = curr->prev;
+					delete curr;
+				}
+				cout << el << " was removed from the list." << endl;
+				return;
+			}
+			curr = curr->next;
+		}
+	}
+	cout << "I cannot find the integer you are trying to remove." << endl;
+	return;
+}
+
+void IntDLList::printList(){				//Prints out contents of list in order
+	IntDLLNode *curr = head;
+	if (isEmpty()){ //If empty list
+		cout << "Nothing to display. The list is empty!" << endl;
+	}
+	else{			//If non-empty list
+		while (curr != NULL){	   //Run until the end of the list
+			cout << curr->info << " ";
+			curr = curr->next;
+		}
+		cout << endl;
+//		cout << "Head = " << head->info << ". Tail = " << tail->info << ". " << endl;
+	}
+}
+
+void IntDLList::addSorted(int el){			//Adds the element into the sorted list (increasing order)
+	if (isEmpty()){					//If empty list
+		head = tail = new IntDLLNode(el);
+	}
+	else if (head == tail){			//If 1 node only
+		if (el <= head->info){			//if added # <= head's info...
+			addToHead(el);
+		}
+		else{							//if added # > head's info ...
+			addToTail(el);
+		}
+	}
+	else{							//If >1 node
+		IntDLLNode *curr = head;
+		while (curr != tail){			//Stop before the tail
+			if (el <= head->info){			//If number is biggest of all numbers...
+				addToHead(el);
+				return;
+			}
+			else if (el >= tail->info){		//If number is smallest of all numbers...
+				addToTail(el);
+				return;
+			}
+			else if (el > curr->info && el < curr->next->info){	 //If number is between curr and curr->next
+				IntDLLNode *temp = new IntDLLNode(el, curr->next, curr);
+				curr->next->prev = temp;
+				curr->next = temp;
+				return;
+			}
+			curr = curr->next;
+		}
+	}
+}
